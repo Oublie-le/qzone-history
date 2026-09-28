@@ -190,7 +190,11 @@ func (s *Server) ensureSession() error {
 	if s.sessionStack != nil {
 		return nil
 	}
-	sessionDB := filepath.Join(paths.ExeDir(), "session.db")
+	dataDir := paths.DataDir()
+	if err := os.MkdirAll(dataDir, 0755); err != nil {
+		return err
+	}
+	sessionDB := filepath.Join(dataDir, "session.db")
 	stack, err := bootstrap.Build(s.cfg, sessionDB)
 	if err != nil {
 		return err

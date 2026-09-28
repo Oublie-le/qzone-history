@@ -4,7 +4,7 @@
 
 
 
-[![Version](https://img.shields.io/badge/version-v0.0.4-brightgreen)](version/version.go)
+[![Version](https://img.shields.io/badge/version-v0.0.5-brightgreen)](version/version.go)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
 [![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go&logoColor=white)](https://go.dev/)
 [![Platform](https://img.shields.io/badge/Platform-Windows-0078D6?style=flat&logo=windows&logoColor=white)](#从源码编译)
@@ -55,6 +55,11 @@
 ## 快速上手
 
 **不想编译？** 直接双击目录中的 `qzone-history-gui.exe`，按**quickStart.md**操作即可。
+
+macOS Apple Silicon（M1 / M2 / M3 / M4）用户可从 GitHub Releases 下载
+`qzone-history_<版本>_darwin_arm64_app.zip`，解压后右键点击
+`Qzone History.app` 并选择「打开」。运行数据保存在
+`~/Library/Application Support/qzone-history`。
 
 详细步骤、Offset 对照表、耗时预估、常见问题见[quickStart.md](./quickStart.md)
 

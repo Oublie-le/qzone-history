@@ -32,3 +32,29 @@ jobs:
           body: |
             ## Windows GUI（无黑窗口）
             直接下载 `qzone-history-gui.exe` 双击运行；与仓库根目录预编译包一致。
+
+  macos-arm64-app:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+
+      - name: Build macOS ARM64 app
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: ./scripts/build-macos-app.sh
+
+      - name: Upload to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/qzone-history_*_darwin_arm64_app.zip
+          append_body: true
+          body: |
+            ## macOS Apple Silicon （M1 / M2 / M3 / M4）
+            下载 `darwin_arm64_app.zip` 并解压，右键点击 `Qzone History.app` 后选择「打开」。
+            本版本采用临时签名，未进行 Apple 开发者公证。
